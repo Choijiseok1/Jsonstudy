@@ -91,6 +91,24 @@ $(function(){
 		
 		//get.json사용
 		$.getJSON("test5.do",{no:"33"},function(data){
+
+		var jsonStr=JSON.stringify(data);
+			//문자열을 다시 변경
+			//json 객체로 파싱함. 
+			
+			var json= JSON.parse(jsonStr);
+			
+			var values=$("#p7").html()+"<bR>";
+			for(var i in json.list){
+				values += json.list[i].userid + ", " + 
+				json.list[i].userpwd + ", " + 
+				decodeURIComponent(json.list[i].username)
+				+ ", " + json.list[i].age + ", " + 
+				json.list[i].email + ", " + 
+				json.list[i].phone + "<br>";
+				
+			}
+			$("#p7").html(values);
 			
 		})
 		//$.ajax사용
