@@ -90,7 +90,9 @@ $(function(){
 		//post방식일 경우 $ajax()만 사용가능함.
 		
 		//get.json사용
-		$.getJSON("test5.do",{no:"33"},function(data){
+		$.getJSON("test5.do",
+				{no:"33"},
+				function(data){
 
 		var jsonStr=JSON.stringify(data);
 			//문자열을 다시 변경
@@ -99,6 +101,7 @@ $(function(){
 			var json= JSON.parse(jsonStr);
 			
 			var values=$("#p7").html()+"<bR>";
+			
 			for(var i in json.list){
 				values += json.list[i].userid + ", " + 
 				json.list[i].userpwd + ", " + 
